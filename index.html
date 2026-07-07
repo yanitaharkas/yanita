@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi Informatika - Berpikir Komputasional</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5ff;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(90deg,#1565c0,#42a5f5);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+nav{
+    background:#0d47a1;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+}
+
+nav a:hover{
+    background:#1976d2;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    margin:20px 0;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 10px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#1565c0;
+    margin-bottom:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.box{
+    background:#e3f2fd;
+    padding:15px;
+    border-radius:10px;
+}
+
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.quiz{
+    margin-top:15px;
+}
+
+.result{
+    font-weight:bold;
+    margin-top:15px;
+    color:green;
+}
+
+footer{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Materi Informatika</h1>
+<h2>Berpikir Komputasional (Computational Thinking)</h2>
+<p>Belajar menyelesaikan masalah secara logis, sistematis, dan efisien.</p>
+</header>
+
+<nav>
+<a href="#pengertian">Pengertian</a>
+<a href="#pilar">4 Pilar</a>
+<a href="#contoh">Contoh</a>
+<a href="#latihan">Latihan</a>
+<a href="#kuis">Kuis</a>
+</nav>
+
+<div class="container">
+
+<section id="pengertian" class="card">
+<h2>Pengertian</h2>
+
+<p>
+Berpikir komputasional adalah cara berpikir untuk menyelesaikan masalah
+secara logis, terstruktur, dan efisien sehingga solusi dapat diterapkan
+oleh manusia maupun komputer.
+</p>
+
+</section>
+
+<section id="pilar" class="card">
+<h2>Empat Pilar Berpikir Komputasional</h2>
+
+<div class="grid">
+
+<div class="box">
+<h3>1. Dekomposisi</h3>
+<p>Memecah masalah besar menjadi bagian-bagian kecil agar lebih mudah diselesaikan.</p>
+</div>
+
+<div class="box">
+<h3>2. Pengenalan Pola</h3>
+<p>Mencari kesamaan atau pola dari berbagai masalah.</p>
+</div>
+
+<div class="box">
+<h3>3. Abstraksi</h3>
+<p>Memilih informasi penting dan mengabaikan informasi yang tidak diperlukan.</p>
+</div>
+
+<div class="box">
+<h3>4. Algoritma</h3>
+<p>Menyusun langkah-langkah penyelesaian masalah secara berurutan.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contoh" class="card">
+
+<h2>Contoh Penerapan</h2>
+
+<h3>Masalah:</h3>
+<p>Membuat teh manis.</p>
+
+<h3>Algoritma:</h3>
+
+<ol>
+<li>Siapkan gelas.</li>
+<li>Masukkan gula.</li>
+<li>Masukkan teh.</li>
+<li>Tuangkan air panas.</li>
+<li>Aduk hingga rata.</li>
+<li>Teh siap diminum.</li>
+</ol>
+
+</section>
+
+<section id="latihan" class="card">
+
+<h2>Latihan</h2>
+
+<p>
+Tuliskan langkah-langkah (algoritma) untuk:
+</p>
+
+<ul>
+<li>Mencuci tangan</li>
+<li>Menyalakan komputer</li>
+<li>Membuat mie instan</li>
+</ul>
+
+</section>
+
+<section id="kuis" class="card">
+
+<h2>Kuis Interaktif</h2>
+
+<div class="quiz">
+
+<p><b>1. Apa yang dimaksud dengan dekomposisi?</b></p>
+
+<label>
+<input type="radio" name="q1" value="0">
+Mengabaikan masalah
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="1">
+Memecah masalah menjadi bagian kecil
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="0">
+Menghafal jawaban
+</label>
+
+</div>
+
+<div class="quiz">
+
+<p><b>2. Langkah-langkah penyelesaian masalah disebut...</b></p>
+
+<label>
+<input type="radio" name="q2" value="0">
+Program
+</label><br>
+
+<label>
+<input type="radio" name="q2" value="1">
+Algoritma
+</label><br>
+
+<label>
+<input type="radio" name="q2" value="0">
+Data
+</label>
+
+</div>
+
+<button onclick="cekNilai()">Periksa Jawaban</button>
+
+<p class="result" id="hasil"></p>
+
+</section>
+
+</div>
+
+<footer>
+<p>© 2026 Materi Informatika | Berpikir Komputasional</p>
+</footer>
+
+<script>
+
+function cekNilai(){
+
+let nilai = 0;
+
+let q1 = document.querySelector('input[name="q1"]:checked');
+let q2 = document.querySelector('input[name="q2"]:checked');
+
+if(q1) nilai += Number(q1.value);
+if(q2) nilai += Number(q2.value);
+
+let hasil = document.getElementById("hasil");
+
+hasil.innerHTML = "Skor Anda : " + (nilai*50) + " / 100";
+
+if(nilai==2){
+hasil.innerHTML += "<br>🎉 Luar biasa! Semua jawaban benar.";
+}
+else if(nilai==1){
+hasil.innerHTML += "<br>👍 Bagus, masih ada yang perlu dipelajari.";
+}
+else{
+hasil.innerHTML += "<br>📚 Yuk pelajari lagi materinya.";
+}
+
+}
+
+</script>
+
+</body>
+</html>
