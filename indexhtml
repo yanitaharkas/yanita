@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahan Ajar Interaktif Informatika - SMP Cordova</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --text: #334155;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .info-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            border-left: 5px solid var(--accent);
+        }
+
+        .info-item h4 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-btn {
+            background: #e2e8f0;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        @media(min-width: 768px) {
+            .options-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .option-btn {
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e1;
+        }
+
+        .option-btn.correct {
+            background: #d1fae5;
+            border-color: var(--success);
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        .option-btn.wrong {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+
+        .essay-list {
+            list-style: none;
+        }
+
+        .essay-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .essay-q {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .reveal-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .essay-ans {
+            display: none;
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: #fffbeb;
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>STUDI INTERAKTIF INFORMATIKA</h1>
+        <p>SMP Cordova • Kurikulum Merdeka [cite: 6, 21]</p>
+    </header>
+
+    <div class="container">
+        <div class="info-panel">
+            <div class="info-item">
+                <h4>Mata Pelajaran</h4>
+                <p>Informatika (SMP/MTs) [cite: 23]</p>
+            </div>
+            <div class="info-item">
+                <h4>Target Ajaran</h4>
+                <p>Tahun Pelajaran 2026/2027</p>
+            </div>
+            <div class="info-item">
+                <h4>Alokasi Uji</h4>
+                <p>90 Menit / Mandiri [cite: 25]</p>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('pg')">Pilihan Ganda</button>
+            <button class="tab-btn" onclick="switchTab('essay')">Soal Uraian / Studi Kasus</button>
+        </div>
+
+        <div id="pg" class="content-section active">
+            <div class="quiz-card">
+                <div class="question">1. Perangkat keras komputer adalah... [cite: 29]</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. Program komputer [cite: 30]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">B. Bagian fisik komputer [cite: 31]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">C. Data yang diproses [cite: 32]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">D. Sistem operasi [cite: 33]</button>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question">2. Manakah di bawah ini yang merupakan contoh dari perangkat input? [cite: 34]</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. Printer [cite: 35]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">B. Monitor [cite: 36]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">C. Keyboard [cite: 35]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">D. Speaker [cite: 36]</button>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question">3. Urutan langkah-langkah logis untuk menyelesaikan sebuah masalah disebut dengan... [cite: 83, 85]</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. Bahasa pemrograman [cite: 84]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">B. Algoritma [cite: 83, 85]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">C. Sistem operasi [cite: 86]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">D. Program komputer [cite: 87]</button>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question">4. Berapakah nilai yang dihasilkan dari ekspresi matematika 5 + 3 * 2? [cite: 101]</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. 16 [cite: 102]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">B. 11 [cite: 103]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">C. 13 [cite: 102]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">D. 10 [cite: 103]</button>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question">5. Struktur data logika "if" di dalam pemrograman digunakan untuk tujuan... [cite: 109]</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. Perulangan (Looping) [cite: 110]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">B. Percabangan (Conditional) [cite: 111]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">C. Deklarasi [cite: 112]</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">D. Output [cite: 113]</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="essay" class="content-section">
+            <ul class="essay-list">
+                <li class="essay-item">
+                    <div class="essay-q">Jelaskan perbedaan antara perangkat keras (hardware) dan perangkat lunak (software) beserta contohnya! [cite: 214]</div>
+                    <button class="reveal-btn" onclick="toggleEssay(this)">Lihat Kunci Jawaban</button>
+                    <div class="essay-ans">
+                        <strong>Kunci Jawaban:</strong> Perangkat keras adalah bagian fisik komputer yang bisa disentuh (Contoh: Keyboard, Mouse, Monitor)[cite: 31, 35, 36]. Perangkat lunak adalah program atau instruksi digital yang menjalankan hardware (Contoh: Sistem Operasi, Microsoft Word, Google Chrome)[cite: 37, 45, 67].
+                    </div>
+                </li>
+                <li class="essay-item">
+                    <div class="essay-q">Apa yang dimaksud dengan algoritma? Buatlah contoh algoritma sederhana membuat secangkir teh! [cite: 215]</div>
+                    <button class="reveal-btn" onclick="toggleEssay(this)">Lihat Kunci Jawaban</button>
+                    <div class="essay-ans">
+                        <strong>Kunci Jawaban:</strong> Algoritma adalah urutan langkah logis penyelesaian masalah[cite: 85]. <br>
+                        Contoh: 1. Siapkan cangkir, teh celup, gula, dan air panas. 2. Masukkan teh celup ke cangkir. 3. Tuangkan air panas. 4. Tambahkan gula secukupnya. 5. Aduk hingga rata dan teh siap disajikan.
+                    </div>
+                </li>
+                <li class="essay-item">
+                    <div class="essay-q">Tuliskan 3 langkah yang dapat dilakukan untuk melindungi data pribadi di internet! [cite: 218]</div>
+                    <button class="reveal-btn" onclick="toggleEssay(this)">Lihat Kunci Jawaban</button>
+                    <div class="essay-ans">
+                        <strong>Kunci Jawaban:</strong> 1. Menggunakan kombinasi password yang kuat dan unik[cite: 81]. 2. Tidak sembarangan membagikan informasi login atau data sensitif ke media sosial[cite: 79, 134]. 3. Menghindari login di perangkat umum atau jaringan Wi-Fi publik yang tidak aman[cite: 82].
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026-2027 Bahan Ajar Digital Informatika. Dikembangkan untuk SMP Cordova[cite: 6].</p>
+    </footer>
+
+    <script>
+        // Fungsi ganti Tab Menu
+        function switchTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Fungsi cek jawaban interaktif
+        function checkAnswer(button, isCorrect) {
+            const siblings = button.parentElement.querySelectorAll('.option-btn');
+            siblings.forEach(sib => {
+                sib.disabled = true; // kunci tombol setelah diklik
+            });
+            
+            if (isCorrect) {
+                button.classList.add('correct');
+            } else {
+                button.classList.add('wrong');
+                // cari mana jawaban yang benar untuk diberi tanda hijau
+                siblings.forEach(sib => {
+                    if(sib.getAttribute('onclick').includes('true')) {
+                        sib.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // Fungsi buka tutup kunci jawaban esai
+        function toggleEssay(button) {
+            const ansDiv = button.nextElementSibling;
+            if (ansDiv.style.display === 'block') {
+                ansDiv.style.display = 'none';
+                button.textContent = 'Lihat Kunci Jawaban';
+            } else {
+                ansDiv.style.display = 'block';
+                button.textContent = 'Sembunyikan Jawaban';
+            }
+        }
+    </script>
+</body>
+</html>
